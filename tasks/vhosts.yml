@@ -12,6 +12,16 @@
     state: directory
   notify: reload nginx
 
+- name: Ensure proxy_cache_path exists.
+  file:
+    path: "{{ nginx_proxy_cache_path }}"
+    state: directory
+    owner: "{{ nginx_user }}"
+    group: root
+    mode: 0700
+  when: nginx_proxy_cache_path
+  notify: reload nginx
+
 - name: Add managed vhost config files.
   template:
     src: "{{ item.template|default(nginx_vhost_template) }}"
