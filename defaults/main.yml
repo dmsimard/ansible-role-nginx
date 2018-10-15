@@ -36,6 +36,9 @@ nginx_client_max_body_size: "64m"
 
 nginx_server_names_hash_bucket_size: "64"
 
+# Set this to a valid value (e.g. "/var/cache/nginx keys_zone=cache:32m") to
+# use Nginx's cache (further proxy configuration can be done in individual
+# server configurations).
 nginx_proxy_cache_path: ""
 
 nginx_extra_conf_options: ""
